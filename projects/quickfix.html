@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quick-Fix — Project Overview</title>
+    <link
+      rel="shortcut icon"
+      href="./assets/icon.png"
+      type="image/x-icon"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"
+    />
+    <link rel="stylesheet" href="../style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="navbar-container">
+        <a href="index.html" class="navbar-brand" data-aos="fade-down" data-aos-delay="0"
+          >Quick-Fix</a
+        >
+
+        <button class="navbar-toggler" aria-label="Toggle navigation">
+          <span class="toggler-icon"></span>
+          <span class="toggler-icon"></span>
+          <span class="toggler-icon"></span>
+        </button>
+
+        <div class="navbar-collapse">
+          <ul class="navbar-nav">
+            <li class="nav-item" data-aos="fade-down" data-aos-delay="0">
+              <a href="../index.html" class="nav-link"
+                ><i class="fa-solid fa-house"></i> Home</a
+              >
+            </li>
+            <li class="nav-item" data-aos="fade-down" data-aos-delay="100">
+              <a href="../index.html#about" class="nav-link">
+                <i class="fa-solid fa-info-circle"></i> About</a
+              >
+            </li>
+            <li class="nav-item" data-aos="fade-down" data-aos-delay="200">
+              <a href="../index.html#education" class="nav-link">
+                <i class="fa-solid fa-layer-group"></i> Tech</a
+              >
+            </li>
+            <li
+              class="nav-item dropdown"
+              data-aos="fade-down"
+              data-aos-delay="300"
+            >
+              <a href="../index.html#about" class="nav-link dropdown-toggle"
+                ><i class="fa-solid fa-list-check"></i> Features
+              </a>
+            </li>
+            <li class="nav-item" data-aos="fade-down" data-aos-delay="400">
+              <a href="../index.html#contact" class="nav-link"
+                ><i class="fa-solid fa-gears"></i> Setup</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <main style="padding: 2rem; max-width: 1000px; margin: 80px auto 0;">
+      <div style="text-align: center; margin-bottom: 3rem;">
+        <h1 style="color: #6c5ce7; font-size: 2.5rem; margin-bottom: 1rem;">Quick-Fix — Project Overview</h1>
+        <p style="color: #a0a0a0; font-size: 1.1rem;">A full-stack service-booking platform with separate roles (guest, user, shop owner, admin). React front-end (client/) and Node/Express backend (server/). Core features: service listings, booking flow, file uploads for shop images, user/shop owner management and admin controls.</p>
+      </div>
+
+<div style="text-align: center; margin-bottom: 2rem;">
+  <img
+    src="../assets/quickfix.png"
+    alt="Project Overview Screenshot"
+    style="width: 100%; max-width: 800px; border-radius: 10px; box-shadow: 0 0 10px rgba(87, 87, 87, 0.678);"
+  />
+ 
+</div>
+
+      <div class="about-card" style="margin-bottom: 2rem;">
+        <h2 style="color: #6c5ce7; margin-bottom: 1rem;">1. Project Summary</h2>
+        <p style="color: #a0a0a0; line-height: 1.6; margin-bottom: 1rem;">
+          Quick-Fix is a marketplace-style application where users can browse shop services, book appointments, and communicate with shop owners. The repository contains a React client (client/) and an Express-based server (server/) with controllers, routes, middleware and models for Users, Bookings, Services and Notifications. File upload handling and email utilities are included on the server side.
+        </p>
+      </div>
+
+      <div class="about-card" style="margin-bottom: 2rem;">
+        <h2 style="color: #6c5ce7; margin-bottom: 1rem;">2. Tech Stack</h2>
+        <div class="skills-grid">
+          <div class="skill-item">
+            <i class="fab fa-react"></i>
+            <span>React (create-react-app)</span>
+          </div>
+          <div class="skill-item">
+            <i class="fab fa-node-js"></i>
+            <span>Node.js / Express</span>
+          </div>
+          <div class="skill-item">
+            <i class="fas fa-database"></i>
+            <span>Server models (User, Booking, Service, Notification)</span>
+          </div>
+          <div class="skill-item">
+            <i class="fas fa-file-upload"></i>
+            <span>Multer-based uploads for images</span>
+          </div>
+          <div class="skill-item">
+            <i class="fas fa-lock"></i>
+            <span>Auth middleware and role checks</span>
+          </div>
+          <div class="skill-item">
+            <i class="fas fa-envelope"></i>
+            <span>Server-side email helper (sendEmail)</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="about-card" style="margin-bottom: 2rem;">
+        <h2 style="color: #6c5ce7; margin-bottom: 1rem;">3. High-level Control Flow</h2>
+        <ol style="color: #a0a0a0; line-height: 1.6; padding-left: 1.5rem;">
+          <li style="margin-bottom: 0.5rem;">User opens the React app → App mounts via client/src/index.js → main UI components under client/src/components handle routes and state.</li>
+          <li style="margin-bottom: 0.5rem;">Guest browses services → select a service and open booking page (client-side BookPage/BookPage components).</li>
+          <li style="margin-bottom: 0.5rem;">User submits a booking → client POSTs booking data to server (bookings endpoint) → server validates, creates Booking model entry and notifies shop owner.</li>
+          <li style="margin-bottom: 0.5rem;">Shop owner views bookings via ShopOwner dashboard → accept/decline or update status → server updates Booking and optionally sends email/notification.</li>
+          <li>Admin functions allow approving shop owners, managing users and viewing all bookings and content via admin controllers and routes.</li>
+        </ol>
+      </div>
+
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-bottom: 2rem;">
+        <div class="about-card">
+          <h3 style="color: #6c5ce7; margin-bottom: 1rem;">Key Backend Components</h3>
+          <ul style="color: #a0a0a0; line-height: 1.6; padding-left: 1.5rem;">
+            <li style="margin-bottom: 0.5rem;"><strong>server/index.js</strong> - Express entry point, middleware and route mounting</li>
+            <li style="margin-bottom: 0.5rem;"><strong>Controllers</strong> - AdminController, UserController, ContactController, shopServiceController manage business logic</li>
+            <li style="margin-bottom: 0.5rem;"><strong>Routes</strong> - routes/ exposes REST endpoints for users, services, bookings and admin actions</li>
+            <li><strong>Multer & upload helpers</strong> - config/bookingmulter.js and multerConfig.js handle file uploads for propertyImages/uploads folders</li>
+          </ul>
+        </div>
+
+        <div class="about-card">
+          <h3 style="color: #6c5ce7; margin-bottom: 1rem;">Client Structure</h3>
+          <div style="color: #a0a0a0; line-height: 1.6;">
+            <p><strong>client/src/App.js:</strong> Main application routes and layout selection (guest, user, shop owner, admin)</p>
+            <p><strong>client/src/components/</strong> - UI components organized by role: guestLayout, userLayout, shopOwnerLayout, adminLayout</p>
+            <p><strong>client/src/context/AuthContext.js:</strong> Authentication state and helpers used across the client</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="about-card" style="margin-bottom: 2rem;">
+        <h2 style="color: #6c5ce7; margin-bottom: 1rem;">4. System Architecture</h2>
+<div style="text-align: center; margin-bottom: 2rem;">
+  <img
+    src="../assets/home.png"
+    alt="System Architecture Diagram"
+    style="width: 100%; max-width: 900px; border-radius: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.3);"
+  />
+  <p style="color: #a0a0a0; margin-top: 0.5rem;">(Architecture diagram placeholder)</p>
+</div>
+
+        
+        <div class="project-card" style="max-width: 100%; margin: 0 auto 2rem;">
+          <div class="project-content">
+            <h3 class="project-title">Frontend Structure</h3>
+            <div class="project-features">
+              <ul>
+                <li><i class="fas fa-check-circle"></i> <strong>Role-based UI</strong> - Separate layouts for users, shop owners and admins</li>
+                <li><i class="fas fa-check-circle"></i> <strong>Booking flow</strong> - Browse services, book slots, view booking history</li>
+                <li><i class="fas fa-check-circle"></i> <strong>Profile & auth</strong> - Login/Register, edit profile, change password</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card" style="max-width: 100%; margin: 0 auto 2rem;">
+          <div class="project-content">
+            <h3 class="project-title">Data Flow Examples</h3>
+            <div class="project-features">
+              <ul>
+                <li><i class="fas fa-check-circle"></i> <strong>Service listing:</strong> client GET /api/services -> show list</li>
+                <li><i class="fas fa-check-circle"></i> <strong>Booking:</strong> client POST /api/bookings -> server creates Booking -> notify owner</li>
+                <li><i class="fas fa-check-circle"></i> <strong>Admin approval:</strong> admin POST/PUT to approve shop owners -> updates ShopService status</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card" style="max-width: 100%; margin: 0 auto;">
+          <div class="project-content">
+            <h3 class="project-title">Component Interconnection</h3>
+            <pre style="background: #1e1e1e; padding: 1rem; border-radius: 5px; color: #a0a0a0; overflow: auto;">
+Browser (React) --fetch/axios--> Express API (server/index.js)
+Routes --> Controllers (UserController, shopServiceController, AdminController)
+Controllers --> Models (UserModel, ShopServiceModel, Booking, Notification)
+Multer handles file uploads -> stored in uploads/ and propertyImages/
+            </pre>
+          </div>
+        </div>
+      </div>
+
+      <div class="about-card" style="margin-bottom: 2rem;">
+        <h2 style="color: #6c5ce7; margin-bottom: 1rem;">5. API Endpoints (suggested)</h2>
+        <div class="tech-stack" style="display:flex;flex-wrap:wrap;gap:8px;color:#a0a0a0">
+          <span>POST /api/auth/login</span>
+          <span>POST /api/auth/register</span>
+          <span>GET /api/services</span>
+          <span>POST /api/bookings</span>
+          <span>GET /api/bookings/:userId</span>
+          <span>PUT /api/admin/approve-shop</span>
+          <span>GET /static/* (client build)</span>
+        </div>
+      </div>
+
+      <div class="about-card" style="margin-bottom: 2rem;">
+        <h2 style="color: #6c5ce7; margin-bottom: 1rem;">6. Features</h2>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+          <div>
+            <h4 style="color: #e0e0e0; margin-bottom: 0.5rem;">Current Features</h4>
+            <ul style="color: #a0a0a0; line-height: 1.6;">
+              <li>Role-based UI for guests, users, shop owners and admins</li>
+              <li>Service creation and image uploads for shops</li>
+              <li>Booking creation, status updates and history</li>
+              <li>Admin approval flow for shop owners and content management</li>
+              <li>Server helpers for email notifications and upload handling</li>
+            </ul>
+          </div>
+          <div>
+            <h4 style="color: #e0e0e0; margin-bottom: 0.5rem;">Future Enhancements</h4>
+            <ul style="color: #a0a0a0; line-height: 1.6;">
+              <li>Payments integration and booking confirmations</li>
+              <li>Real-time notifications (websockets) for booking updates</li>
+              <li>Extended search, filtering and ratings for services</li>
+              <li>Improvements to image handling, resizing and CDN delivery</li>
+              <li>Automated tests for server controllers and client flows</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+<div style="text-align: center; margin-bottom: 2rem;">
+  <img
+    src="../assets/quickfixadmin.png"
+    alt="User Interface Preview"
+    style="width: 100%; max-width: 800px; border-radius: 10px; box-shadow: 0 0 10px rgba(157, 156, 156, 0.818);"
+  />
+  <p style="color: #a0a0a0; margin-top: 0.5rem;">(UI components or preview placeholder)</p>
+</div>
+
+      <div class="about-card">
+        <h2 style="color: #6c5ce7; margin-bottom: 1rem;">7. Development Setup</h2>
+        <div style="background: #1e1e1e; padding: 1.5rem; border-radius: 5px; margin-bottom: 1rem;">
+          <h4 style="color: #e0e0e0; margin-bottom: 0.5rem;">Server Setup</h4>
+          <pre style="color: #a0a0a0; margin: 0;">
+cd server
+npm install
+node index.js   # or npm run dev if configured</pre>
+        </div>
+        <div style="background: #1e1e1e; padding: 1.5rem; border-radius: 5px;">
+          <h4 style="color: #e0e0e0; margin-bottom: 0.5rem;">Client Setup</h4>
+          <pre style="color: #a0a0a0; margin: 0;">
+cd client
+npm install
+npm start</pre>
+        </div>
+        <p style="color: #a0a0a0; margin-top: 1rem; font-style: italic;">
+          The server contains upload folders (uploads/, propertyImages/) and helper config for Multer. Ensure environment variables in server/.env are set (JWT keys, DB connection string, mail config) before starting.
+        </p>
+      </div>
+    </main>
+
+    <div class="custom-cursor"><span class="cursor-icon"></span></div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.7.0/vanilla-tilt.min.js"></script>
+    <script src="script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+      AOS.init({
+        duration: 1000,
+        once: false,
+        easing: "ease-in-out",
+      });
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+
+    <script>
+      const cursor = document.querySelector(".custom-cursor");
+
+      window.addEventListener("mousemove", (e) => {
+        gsap.to(cursor, {
+          x: e.clientX,
+          y: e.clientY,
+          duration: 0.2,
+          ease: "power2.out",
+        });
+      });
+      const links = document.querySelectorAll("a, button");
+      const scalecmp = document.querySelectorAll(".scaleonhover");
+
+      links.forEach((link) => {
+        link.addEventListener("mouseenter", () => {
+          gsap.to(cursor, { scale: 1.4, duration: 0.3 });
+        });
+        link.addEventListener("mouseleave", () => {
+          gsap.to(cursor, { scale: 1, duration: 0.3 });
+        });
+      });
+      scalecmp.forEach((cmp) => {
+        cmp.addEventListener("mouseenter", () => {
+          gsap.to(cursor, { scale: 8, duration: 0.3 });
+        });
+        cmp.addEventListener("mouseleave", () => {
+          gsap.to(cursor, { scale: 1, duration: 0.3 });
+        });
+      });
+
+      const cursorIcon = document.querySelector(".cursor-icon");
+
+      // Elements to show hand
+      document.querySelectorAll("a, button").forEach((el) => {
+        el.addEventListener("mouseenter", () => {
+          cursor.style.mixBlendMode = "normal";
+          cursorIcon.textContent = "👆"; // Hand emoji
+        });
+        el.addEventListener("mouseleave", () => {
+          cursor.style.mixBlendMode = "difference";
+          cursorIcon.textContent = "";
+        });
+      });
+    </script>
+  </body>
+</html>

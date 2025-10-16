@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LetMySpace — Project Overview</title>
+    <link
+      rel="shortcut icon"
+      href="./assets/DarshanNandagavi.JPG"
+      type="image/x-icon"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"
+    />
+    <link rel="stylesheet" href="../style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="navbar-container">
+        <a
+          href="index.html"
+          class="navbar-brand"
+          data-aos="fade-down"
+          data-aos-delay="0"
+          >Let My Space</a
+        >
+
+        <button class="navbar-toggler" aria-label="Toggle navigation">
+          <span class="toggler-icon"></span>
+          <span class="toggler-icon"></span>
+          <span class="toggler-icon"></span>
+        </button>
+
+        <div class="navbar-collapse">
+          <ul class="navbar-nav">
+            <li class="nav-item" data-aos="fade-down" data-aos-delay="0">
+              <a href="../index.html" class="nav-link"
+                ><i class="fa-solid fa-house"></i> Home</a
+              >
+            </li>
+            <li class="nav-item" data-aos="fade-down" data-aos-delay="100">
+              <a href="../index.html#about" class="nav-link">
+                <i class="fa-solid fa-address-card"></i> About</a
+              >
+            </li>
+            <li class="nav-item" data-aos="fade-down" data-aos-delay="200">
+              <a href="../index.html#education" class="nav-link">
+                <i class="fa-solid fa-user-graduate"></i> Education</a
+              >
+            </li>
+            <li
+              class="nav-item dropdown"
+              data-aos="fade-down"
+              data-aos-delay="300"
+            >
+              <a href="../index.html#projects" class="nav-link dropdown-toggle"
+                ><i class="fa-solid fa-list-check"></i> Projects
+              </a>
+            </li>
+            <li class="nav-item" data-aos="fade-down" data-aos-delay="400">
+              <a href="../index.html#contact" class="nav-link"
+                ><i class="fa-solid fa-address-card"></i>Contact</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <main style="padding: 2rem; max-width: 1000px; margin: 80px auto 0">
+      <div style="text-align: center; margin-bottom: 3rem">
+        <h1 style="color: #6c5ce7; font-size: 2.5rem; margin-bottom: 1rem">
+          LetMySpace — Project Overview
+        </h1>
+        <p style="color: #a0a0a0; font-size: 1.1rem">
+          Full-stack property listing and booking platform
+        </p>
+      </div>
+      <!-- Add this right below the main title -->
+      <div style="text-align: center; margin-bottom: 2rem">
+        <img
+          src="../assets/letmyspacehome.png"
+          alt="Project Overview Screenshot"
+          style="
+            width: 100%;
+            max-width: 800px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(97, 97, 97, 0.818);
+          "
+        />
+        <p style="color: #a0a0a0; margin-top: 0.5rem">
+          (Project UI preview placeholder)
+        </p>
+      </div>
+
+      <div class="about-card" style="margin-bottom: 2rem">
+        <h2 style="color: #6c5ce7; margin-bottom: 1rem">1. Project Summary</h2>
+        <p style="color: #a0a0a0; line-height: 1.6; margin-bottom: 1rem">
+          LetMySpace is a full‑stack web application for listing and discovering
+          rental/sale properties. The project has a Node/Express server with
+          MongoDB models and email/file upload logic, and a React front-end with
+          layouts for guest, user, and admin.
+        </p>
+      </div>
+
+      <div class="about-card" style="margin-bottom: 2rem">
+        <h2 style="color: #6c5ce7; margin-bottom: 1rem">2. Tech Stack</h2>
+        <div class="skills-grid">
+          <div class="skill-item">
+            <i class="fab fa-react"></i>
+            <span>React</span>
+          </div>
+          <div class="skill-item">
+            <i class="fab fa-node-js"></i>
+            <span>Node.js</span>
+          </div>
+          <div class="skill-item">
+            <i class="fas fa-database"></i>
+            <span>MongoDB</span>
+          </div>
+          <div class="skill-item">
+            <i class="fab fa-js"></i>
+            <span>Express.js</span>
+          </div>
+          <div class="skill-item">
+            <i class="fas fa-envelope"></i>
+            <span>Nodemailer</span>
+          </div>
+          <div class="skill-item">
+            <i class="fas fa-upload"></i>
+            <span>Multer</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="about-card" style="margin-bottom: 2rem">
+        <h2 style="color: #6c5ce7; margin-bottom: 1rem">
+          3. High-level Control Flow
+        </h2>
+        <ol style="color: #a0a0a0; line-height: 1.6; padding-left: 1.5rem">
+          <li style="margin-bottom: 0.5rem">
+            User registers → server validates → generates verification code →
+            email sent → user confirms code → account saved
+          </li>
+          <li style="margin-bottom: 0.5rem">
+            User logs in → server verifies credentials → updates userStatus →
+            returns basic user object
+          </li>
+          <li style="margin-bottom: 0.5rem">
+            User uploads property → images uploaded via /propertyImages endpoint
+            (Multer) → image paths saved with property record → confirmation
+            email sent to owner
+          </li>
+          <li style="margin-bottom: 0.5rem">
+            Client fetches properties from /user/properties to display listings
+            (UserHome component)
+          </li>
+          <li>
+            Admins and other routes operate via dedicated routers and
+            controllers under server/controller and server/routes
+          </li>
+        </ol>
+      </div>
+
+      <div
+        style="
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 2rem;
+          margin-bottom: 2rem;
+        "
+      >
+        <div class="about-card">
+          <h3 style="color: #6c5ce7; margin-bottom: 1rem">
+            Key Backend Components
+          </h3>
+          <ul style="color: #a0a0a0; line-height: 1.6; padding-left: 1.5rem">
+            <li style="margin-bottom: 0.5rem">
+              <strong>index.js</strong> - Server entry point with MongoDB
+              connection
+            </li>
+            <li style="margin-bottom: 0.5rem">
+              <strong>UserController</strong> - Handles registration, login,
+              verification
+            </li>
+            <li style="margin-bottom: 0.5rem">
+              <strong>Property handling</strong> - Image uploads and property
+              CRUD
+            </li>
+            <li>
+              <strong>Email system</strong> - Verification and notifications
+            </li>
+          </ul>
+        </div>
+
+        <div class="about-card">
+          <h3 style="color: #6c5ce7; margin-bottom: 1rem">Database Models</h3>
+          <div style="color: #a0a0a0; line-height: 1.6">
+            <p>
+              <strong>User Model:</strong> firstName, lastName, email, password,
+              role, userStatus, profilePicture, contact info
+            </p>
+            <p>
+              <strong>PropertyData Model:</strong> propertyType, owner, size,
+              location, images, description, amenities
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="about-card" style="margin-bottom: 2rem">
+        <h2 style="color: #6c5ce7; margin-bottom: 1rem">
+          4. System Architecture
+        </h2>
+        <!-- Inside 4. System Architecture section, after <h2> -->
+        <div style="text-align: center; margin-bottom: 2rem">
+          <img
+            src="../assets/letmyspacedashboard.png"
+            alt="System Architecture Diagram"
+            style="
+              width: 100%;
+              max-width: 900px;
+              border-radius: 10px;
+              box-shadow: 0 0 10px rgba(97, 97, 97, 0.818);
+            "
+          />
+          <p style="color: #a0a0a0; margin-top: 0.5rem">
+            (Architecture flow diagram placeholder)
+          </p>
+        </div>
+
+        <div class="project-card" style="max-width: 100%; margin: 0 auto 2rem">
+          <div class="project-content">
+            <h3 class="project-title">Frontend Structure</h3>
+            <div class="project-features">
+              <ul>
+                <li>
+                  <i class="fas fa-check-circle"></i>
+                  <strong>Guest Layout</strong> - Public pages (Home, About,
+                  Register, Login)
+                </li>
+                <li>
+                  <i class="fas fa-check-circle"></i>
+                  <strong>User Layout</strong> - Authenticated pages (UserHome,
+                  PropertyUploader, MyProperties)
+                </li>
+                <li>
+                  <i class="fas fa-check-circle"></i>
+                  <strong>Admin Layout</strong> - Admin dashboards and user
+                  management
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card" style="max-width: 100%; margin: 0 auto 2rem">
+          <div class="project-content">
+            <h3 class="project-title">Data Flow Examples</h3>
+            <div class="project-features">
+              <ul>
+                <li>
+                  <i class="fas fa-check-circle"></i>
+                  <strong>UserHome fetchProperties():</strong> axios GET to
+                  /user/properties, stores results in state and renders list
+                </li>
+                <li>
+                  <i class="fas fa-check-circle"></i>
+                  <strong>PropertyUploader:</strong> uploads image(s) to
+                  /propertyImages, receives filepath(s), then posts property
+                  metadata
+                </li>
+                <li>
+                  <i class="fas fa-check-circle"></i>
+                  <strong>Forgot password:</strong> client requests
+                  /user/forgot/:email → backend generates temp password, emails
+                  it and updates DB
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card" style="max-width: 100%; margin: 0 auto">
+          <div class="project-content">
+            <h3 class="project-title">Component Interconnection</h3>
+            <pre
+              style="
+                background: #1e1e1e;
+                padding: 1rem;
+                border-radius: 5px;
+                color: #a0a0a0;
+                overflow: auto;
+              "
+            >
+Browser (React) --axios--> Express routes (/user, /admin, /category, ...)
+Express route --> Controller action --> Model (Mongoose) --> MongoDB
+Controller may call: Nodemailer (send email), Multer (save files), filesystem (serve static)
+            </pre>
+          </div>
+        </div>
+      </div>
+
+      <div class="about-card" style="margin-bottom: 2rem">
+        <h2 style="color: #6c5ce7; margin-bottom: 1rem">5. API Endpoints</h2>
+        <div class="tech-stack">
+          <span>POST /user/register</span>
+          <span>POST /user/login</span>
+          <span>POST /user/email-verification</span>
+          <span>GET /user/properties</span>
+          <span>POST /propertyImages</span>
+          <span>POST /upload</span>
+          <span>GET /uploads/:filename</span>
+        </div>
+      </div>
+
+      <div class="about-card" style="margin-bottom: 2rem">
+        <h2 style="color: #6c5ce7; margin-bottom: 1rem">6. Features</h2>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem">
+          <div>
+            <h4 style="color: #e0e0e0; margin-bottom: 0.5rem">
+              Current Features
+            </h4>
+            <ul style="color: #a0a0a0; line-height: 1.6">
+              <li>User registration & email verification</li>
+              <li>User login/logout and status updates</li>
+              <li>Property listing with multiple images</li>
+              <li>File upload & download endpoints</li>
+              <li>Password reset via email</li>
+              <li>Admin content management</li>
+            </ul>
+          </div>
+          <div>
+            <h4 style="color: #e0e0e0; margin-bottom: 0.5rem">
+              Future Enhancements
+            </h4>
+            <ul style="color: #a0a0a0; line-height: 1.6">
+              <li>Cloud image storage (S3/Azure/Cloudinary)</li>
+              <li>JWT-based authentication</li>
+              <li>Pagination and search filters</li>
+              <li>Image optimization</li>
+              <li>Role-based admin panel</li>
+              <li>Automated deployment</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <!-- Near the bottom, before the Development Setup section -->
+      <div style="text-align: center; margin-bottom: 2rem">
+        <img
+          src="../assets/letmyspacedashboard.png"
+          alt="User Interface Preview"
+          style="
+            width: 100%;
+            max-width: 800px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(97, 97, 97, 0.818);
+          "
+        />
+        <p style="color: #a0a0a0; margin-top: 0.5rem">
+          (UI components or dashboard preview placeholder)
+        </p>
+      </div>
+
+      <div class="about-card">
+        <h2 style="color: #6c5ce7; margin-bottom: 1rem">
+          7. Development Setup
+        </h2>
+        <div
+          style="
+            background: #1e1e1e;
+            padding: 1.5rem;
+            border-radius: 5px;
+            margin-bottom: 1rem;
+          "
+        >
+          <h4 style="color: #e0e0e0; margin-bottom: 0.5rem">Server Setup</h4>
+          <pre style="color: #a0a0a0; margin: 0">
+cd server
+npm install
+npm run dev   # or node index.js</pre
+          >
+        </div>
+        <div style="background: #1e1e1e; padding: 1.5rem; border-radius: 5px">
+          <h4 style="color: #e0e0e0; margin-bottom: 0.5rem">Client Setup</h4>
+          <pre style="color: #a0a0a0; margin: 0">
+cd client
+npm install
+npm start</pre
+          >
+        </div>
+        <p style="color: #a0a0a0; margin-top: 1rem; font-style: italic">
+          Ensure your .env contains MONGOURL, EMAIL, EMAIL_PASSWORD, PORT (if
+          needed).
+        </p>
+      </div>
+    </main>
+
+    <div class="custom-cursor"><span class="cursor-icon"></span></div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.7.0/vanilla-tilt.min.js"></script>
+    <script src="script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+      AOS.init({
+        duration: 1000,
+        once: false,
+        easing: "ease-in-out",
+      });
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+
+    <script>
+      const cursor = document.querySelector(".custom-cursor");
+
+      window.addEventListener("mousemove", (e) => {
+        gsap.to(cursor, {
+          x: e.clientX,
+          y: e.clientY,
+          duration: 0.2,
+          ease: "power2.out",
+        });
+      });
+      const links = document.querySelectorAll("a, button");
+      const scalecmp = document.querySelectorAll(".scaleonhover");
+
+      links.forEach((link) => {
+        link.addEventListener("mouseenter", () => {
+          gsap.to(cursor, { scale: 1.4, duration: 0.3 });
+        });
+        link.addEventListener("mouseleave", () => {
+          gsap.to(cursor, { scale: 1, duration: 0.3 });
+        });
+      });
+      scalecmp.forEach((cmp) => {
+        cmp.addEventListener("mouseenter", () => {
+          gsap.to(cursor, { scale: 8, duration: 0.3 });
+        });
+        cmp.addEventListener("mouseleave", () => {
+          gsap.to(cursor, { scale: 1, duration: 0.3 });
+        });
+      });
+
+      const cursorIcon = document.querySelector(".cursor-icon");
+
+      // Elements to show hand
+      document.querySelectorAll("a, button").forEach((el) => {
+        el.addEventListener("mouseenter", () => {
+          cursor.style.mixBlendMode = "normal";
+          cursorIcon.textContent = "👆"; 
+        });
+        el.addEventListener("mouseleave", () => {
+          cursor.style.mixBlendMode = "difference";
+          cursorIcon.textContent = "";
+        });
+      });
+    </script>
+  </body>
+</html>

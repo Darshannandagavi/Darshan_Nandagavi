@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Morse Decrypter — Project Overview</title>
+    <link
+      rel="shortcut icon"
+      href="./assets/icon.png"
+      type="image/x-icon"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"
+    />
+    <link rel="stylesheet" href="../style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="navbar-container">
+        <a href="index.html" class="navbar-brand" data-aos="fade-down" data-aos-delay="0"
+          >Morse Decrypter</a
+        >
+
+        <button class="navbar-toggler" aria-label="Toggle navigation">
+          <span class="toggler-icon"></span>
+          <span class="toggler-icon"></span>
+          <span class="toggler-icon"></span>
+        </button>
+
+        <div class="navbar-collapse">
+          <ul class="navbar-nav">
+            <li class="nav-item" data-aos="fade-down" data-aos-delay="0">
+              <a href="index.html" class="nav-link"
+                ><i class="fa-solid fa-house"></i> Home</a
+              >
+            </li>
+            <li class="nav-item" data-aos="fade-down" data-aos-delay="100">
+              <a href="index.html#about" class="nav-link">
+                <i class="fa-solid fa-info-circle"></i> About</a
+              >
+            </li>
+            <li class="nav-item" data-aos="fade-down" data-aos-delay="200">
+              <a href="index.html#tech" class="nav-link">
+                <i class="fa-solid fa-layer-group"></i> Tech</a
+              >
+            </li>
+            <li
+              class="nav-item dropdown"
+              data-aos="fade-down"
+              data-aos-delay="300"
+            >
+              <a href="index.html#features" class="nav-link dropdown-toggle"
+                ><i class="fa-solid fa-list-check"></i> Features
+              </a>
+            </li>
+            <li class="nav-item" data-aos="fade-down" data-aos-delay="400">
+              <a href="index.html#setup" class="nav-link"
+                ><i class="fa-solid fa-gears"></i> Setup</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <main style="padding: 2rem; max-width: 1000px; margin: 80px auto 0;">
+      <div style="text-align: center; margin-bottom: 3rem;">
+        <h1 style="color: #6c5ce7; font-size: 2.5rem; margin-bottom: 1rem;">Morse Decrypter — Project Overview</h1>
+        <p style="color: #a0a0a0; font-size: 1.1rem;">A small full-stack tool to decode Morse code from text and audio with a React front-end and Node/Express backend.</p>
+      </div>
+
+<div style="text-align: center; margin-bottom: 2rem;">
+  <img
+    src="../assets/home.png"
+    alt="Project Overview Screenshot"
+    style="width: 100%; max-width: 800px; border-radius: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.3);"
+  />
+  <p style="color: #a0a0a0; margin-top: 0.5rem;">(UI preview placeholder)</p>
+</div>
+
+      <div class="about-card" style="margin-bottom: 2rem;">
+        <h2 style="color: #6c5ce7; margin-bottom: 1rem;">1. Project Summary</h2>
+        <p style="color: #a0a0a0; line-height: 1.6; margin-bottom: 1rem;">
+          Morse Decrypter lets users paste or input Morse code (dots, dashes, slashes and spacing) or upload short audio snippets and receive decoded plain text. The repository contains a React client (client/) and a minimal Node/Express server (server/). The client performs most UI decoding but can call the server for audio processing or alternative decoding strategies.
+        </p>
+      </div>
+
+      <div class="about-card" style="margin-bottom: 2rem;">
+        <h2 style="color: #6c5ce7; margin-bottom: 1rem;">2. Tech Stack</h2>
+        <div class="skills-grid">
+          <div class="skill-item">
+            <i class="fab fa-react"></i>
+            <span>React (create-react-app)</span>
+          </div>
+          <div class="skill-item">
+            <i class="fab fa-node-js"></i>
+            <span>Node.js</span>
+          </div>
+          <div class="skill-item">
+            <i class="fab fa-js"></i>
+            <span>Express</span>
+          </div>
+          <div class="skill-item">
+            <i class="fas fa-file-audio"></i>
+            <span>Web Audio / optional FFT</span>
+          </div>
+          <div class="skill-item">
+            <i class="fas fa-code"></i>
+            <span>JavaScript / JSX</span>
+          </div>
+          <div class="skill-item">
+            <i class="fas fa-vials"></i>
+            <span>Jest (basic client tests)</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="about-card" style="margin-bottom: 2rem;">
+        <h2 style="color: #6c5ce7; margin-bottom: 1rem;">3. High-level Control Flow</h2>
+        <ol style="color: #a0a0a0; line-height: 1.6; padding-left: 1.5rem;">
+          <li style="margin-bottom: 0.5rem;">User opens the React app → App mounts via client/src/index.js → main UI in client/src/App.js</li>
+          <li style="margin-bottom: 0.5rem;">User pastes Morse text or types dots/dashes → client runs a local decoder algorithm → plaintext displayed immediately</li>
+          <li style="margin-bottom: 0.5rem;">For audio input: client records or uploads audio → POST to server endpoint (e.g. /api/decode-audio) → server runs simple audio processing (threshold or FFT) and returns candidate Morse sequence → client displays decoded text</li>
+          <li style="margin-bottom: 0.5rem;">Optional: client can call server /api/decode-text to use server-side decoder or logging</li>
+          <li>Tests exercise UI decoding functions and basic integration in client/src/App.test.js.</li>
+        </ol>
+      </div>
+
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-bottom: 2rem;">
+        <div class="about-card">
+          <h3 style="color: #6c5ce7; margin-bottom: 1rem;">Key Backend Components</h3>
+          <ul style="color: #a0a0a0; line-height: 1.6; padding-left: 1.5rem;">
+            <li style="margin-bottom: 0.5rem;"><strong>server/index.js</strong> - Express entry point and any API routes</li>
+            <li style="margin-bottom: 0.5rem;"><strong>Audio decode route</strong> - Receives audio blobs and returns parsed dot/dash timing</li>
+            <li style="margin-bottom: 0.5rem;"><strong>Text decode route</strong> - Optional endpoint to decode raw Morse text server-side</li>
+            <li><strong>Static hosting</strong> - Server may serve client build in production</li>
+          </ul>
+        </div>
+
+        <div class="about-card">
+          <h3 style="color: #6c5ce7; margin-bottom: 1rem;">Client Structure</h3>
+          <div style="color: #a0a0a0; line-height: 1.6;">
+            <p><strong>client/src/App.js:</strong> Main UI, input fields, buttons to decode, audio recorder/upload</p>
+            <p><strong>client/src/index.js:</strong> App bootstrap</p>
+            <p><strong>client/src/App.test.js:</strong> Unit tests for decoder logic</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="about-card" style="margin-bottom: 2rem;">
+        <h2 style="color: #6c5ce7; margin-bottom: 1rem;">4. System Architecture</h2>
+<div style="text-align: center; margin-bottom: 2rem;">
+  <img
+    src="../assets/home.png"
+    alt="System Architecture Diagram"
+    style="width: 100%; max-width: 900px; border-radius: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.3);"
+  />
+  <p style="color: #a0a0a0; margin-top: 0.5rem;">(Architecture diagram placeholder)</p>
+</div>
+
+        
+        <div class="project-card" style="max-width: 100%; margin: 0 auto 2rem;">
+          <div class="project-content">
+            <h3 class="project-title">Frontend Structure</h3>
+            <div class="project-features">
+              <ul>
+                <li><i class="fas fa-check-circle"></i> <strong>Decoder UI</strong> - Text input, paste, live decode</li>
+                <li><i class="fas fa-check-circle"></i> <strong>Audio Input</strong> - Record or upload WAV/MP3 for server-side analysis</li>
+                <li><i class="fas fa-check-circle"></i> <strong>Copy/Share</strong> - Copy decoded text to clipboard and simple export</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card" style="max-width: 100%; margin: 0 auto 2rem;">
+          <div class="project-content">
+            <h3 class="project-title">Data Flow Examples</h3>
+            <div class="project-features">
+              <ul>
+                <li><i class="fas fa-check-circle"></i> <strong>Text decode:</strong> input -> local decoder function -> display</li>
+                <li><i class="fas fa-check-circle"></i> <strong>Audio decode:</strong> upload -> POST /api/decode-audio -> server returns dot/dash timeline -> client runs final decode</li>
+                <li><i class="fas fa-check-circle"></i> <strong>Server fallback:</strong> POST /api/decode-text -> server returns decoded plaintext</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card" style="max-width: 100%; margin: 0 auto;">
+          <div class="project-content">
+            <h3 class="project-title">Component Interconnection</h3>
+            <pre style="background: #1e1e1e; padding: 1rem; border-radius: 5px; color: #a0a0a0; overflow: auto;">
+Browser (React) --fetch/axios--> Express API (/api/decode-audio, /api/decode-text)
+Express route --> audio/text processing module --> returns dot/dash sequence or plaintext
+Client converts dot/dash timing -> characters using Morse table -> displays result
+            </pre>
+          </div>
+        </div>
+      </div>
+
+      <div class="about-card" style="margin-bottom: 2rem;">
+        <h2 style="color: #6c5ce7; margin-bottom: 1rem;">5. API Endpoints (suggested)</h2>
+        <div class="tech-stack" style="display:flex;flex-wrap:wrap;gap:8px;color:#a0a0a0">
+          <span>POST /api/decode-text</span>
+          <span>POST /api/decode-audio</span>
+          <span>GET /api/health</span>
+          <span>GET /static/* (client build)</span>
+        </div>
+      </div>
+
+      <div class="about-card" style="margin-bottom: 2rem;">
+        <h2 style="color: #6c5ce7; margin-bottom: 1rem;">6. Features</h2>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+          <div>
+            <h4 style="color: #e0e0e0; margin-bottom: 0.5rem;">Current Features</h4>
+            <ul style="color: #a0a0a0; line-height: 1.6;">
+              <li>Live text-based Morse decoding (dot/dash/slash input)</li>
+              <li>Simple UI for paste and decode</li>
+              <li>Audio upload endpoint (server-side placeholder)</li>
+              <li>Client unit tests for decoder logic</li>
+              <li>Static client + lightweight server</li>
+            </ul>
+          </div>
+          <div>
+            <h4 style="color: #e0e0e0; margin-bottom: 0.5rem;">Future Enhancements</h4>
+            <ul style="color: #a0a0a0; line-height: 1.6;">
+              <li>Real-time audio decoding from microphone (WebAudio + on-device FFT)</li>
+              <li>Improved timing detection and tolerance for varied speeds</li>
+              <li>Support prosigns, punctuation and extended Morse tables</li>
+              <li>Optional persistence of decoded history</li>
+              <li>Deploy serverless API for audio decoding</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+<div style="text-align: center; margin-bottom: 2rem;">
+  <img
+    src="../assets/home.png"
+    alt="User Interface Preview"
+    style="width: 100%; max-width: 800px; border-radius: 10px; box-shadow: 0 0 10px rgba(157, 156, 156, 0.818);"
+  />
+  <p style="color: #a0a0a0; margin-top: 0.5rem;">(UI components or decoder preview placeholder)</p>
+</div>
+
+      <div class="about-card">
+        <h2 style="color: #6c5ce7; margin-bottom: 1rem;">7. Development Setup</h2>
+        <div style="background: #1e1e1e; padding: 1.5rem; border-radius: 5px; margin-bottom: 1rem;">
+          <h4 style="color: #e0e0e0; margin-bottom: 0.5rem;">Server Setup</h4>
+          <pre style="color: #a0a0a0; margin: 0;">
+cd server
+npm install
+node index.js   # or npm run dev if configured</pre>
+        </div>
+        <div style="background: #1e1e1e; padding: 1.5rem; border-radius: 5px;">
+          <h4 style="color: #e0e0e0; margin-bottom: 0.5rem;">Client Setup</h4>
+          <pre style="color: #a0a0a0; margin: 0;">
+cd client
+npm install
+npm start</pre>
+        </div>
+        <p style="color: #a0a0a0; margin-top: 1rem; font-style: italic;">
+          No database is required for the minimal setup. For audio features ensure ffmpeg or suitable audio tool is available if server-side processing expects specific formats.
+        </p>
+      </div>
+    </main>
+
+    <div class="custom-cursor"><span class="cursor-icon"></span></div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.7.0/vanilla-tilt.min.js"></script>
+    <script src="script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+      AOS.init({
+        duration: 1000,
+        once: false,
+        easing: "ease-in-out",
+      });
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+
+    <script>
+      const cursor = document.querySelector(".custom-cursor");
+
+      window.addEventListener("mousemove", (e) => {
+        gsap.to(cursor, {
+          x: e.clientX,
+          y: e.clientY,
+          duration: 0.2,
+          ease: "power2.out",
+        });
+      });
+      const links = document.querySelectorAll("a, button");
+      const scalecmp = document.querySelectorAll(".scaleonhover");
+
+      links.forEach((link) => {
+        link.addEventListener("mouseenter", () => {
+          gsap.to(cursor, { scale: 1.4, duration: 0.3 });
+        });
+        link.addEventListener("mouseleave", () => {
+          gsap.to(cursor, { scale: 1, duration: 0.3 });
+        });
+      });
+      scalecmp.forEach((cmp) => {
+        cmp.addEventListener("mouseenter", () => {
+          gsap.to(cursor, { scale: 8, duration: 0.3 });
+        });
+        cmp.addEventListener("mouseleave", () => {
+          gsap.to(cursor, { scale: 1, duration: 0.3 });
+        });
+      });
+
+      const cursorIcon = document.querySelector(".cursor-icon");
+
+      // Elements to show hand
+      document.querySelectorAll("a, button").forEach((el) => {
+        el.addEventListener("mouseenter", () => {
+          cursor.style.mixBlendMode = "normal";
+          cursorIcon.textContent = "👆"; // Hand emoji
+        });
+        el.addEventListener("mouseleave", () => {
+          cursor.style.mixBlendMode = "difference";
+          cursorIcon.textContent = "";
+        });
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Jarvis — Project Overview</title>
+    <link
+      rel="shortcut icon"
+      href="./assets/icon.png"
+      type="image/x-icon"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"
+    />
+    <link rel="stylesheet" href="../style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="navbar-container">
+        <a href="index.html" class="navbar-brand" data-aos="fade-down" data-aos-delay="0"
+          >JARVIS</a
+        >
+
+        <button class="navbar-toggler" aria-label="Toggle navigation">
+          <span class="toggler-icon"></span>
+          <span class="toggler-icon"></span>
+          <span class="toggler-icon"></span>
+        </button>
+
+        <div class="navbar-collapse">
+          <ul class="navbar-nav">
+            <li class="nav-item" data-aos="fade-down" data-aos-delay="0">
+              <a href="../index.html" class="nav-link"
+                ><i class="fa-solid fa-house"></i> Home</a
+              >
+            </li>
+            <li class="nav-item" data-aos="fade-down" data-aos-delay="100">
+              <a href="../index.html#about" class="nav-link">
+                <i class="fa-solid fa-info-circle"></i> About</a
+              >
+            </li>
+            <li class="nav-item" data-aos="fade-down" data-aos-delay="200">
+              <a href="../index.html#education" class="nav-link">
+                <i class="fa-solid fa-layer-group"></i> Tech</a
+              >
+            </li>
+            <li
+              class="nav-item dropdown"
+              data-aos="fade-down"
+              data-aos-delay="300"
+            >
+              <a href="../index.html#about" class="nav-link dropdown-toggle"
+                ><i class="fa-solid fa-list-check"></i> Features
+              </a>
+            </li>
+            <li class="nav-item" data-aos="fade-down" data-aos-delay="400">
+              <a href="../index.html#contact" class="nav-link"
+                ><i class="fa-solid fa-gears"></i> Setup</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <main style="padding: 2rem; max-width: 1000px; margin: 80px auto 0;">
+      <div style="text-align: center; margin-bottom: 3rem;">
+        <h1 style="color: #6c5ce7; font-size: 2.5rem; margin-bottom: 1rem;">Jarvis — Project Overview</h1>
+        <p style="color: #a0a0a0; font-size: 1.1rem;">Jarvis is a local personal assistant / automation project that combines voice interaction, simple web UI, modular skill handlers and system helpers. The repository groups core memory/command parsing, modular capabilities (email, music, social, system), and a small frontend for text-based interactions and history viewing.</p>
+      </div>
+
+<div style="text-align: center; margin-bottom: 2rem;">
+  <img
+    src="../assets/smarty.png"
+    alt="Project Overview Screenshot"
+    style="width: 100%; max-width: 800px; border-radius: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.3);"
+  />
+  <p style="color: #a0a0a0; margin-top: 0.5rem;">(UI preview placeholder)</p>
+</div>
+
+      <div class="about-card" style="margin-bottom: 2rem;">
+        <h2 style="color: #6c5ce7; margin-bottom: 1rem;">1. Project Summary</h2>
+        <p style="color: #a0a0a0; line-height: 1.6; margin-bottom: 1rem;">
+          Jarvis is designed as a lightweight assistant that can listen (speech recognition), respond (text + TTS), perform tasks via modular handlers (play music, send email, control system), and persist conversational history. The codebase separates responsibilities into a modules/ folder for actionable skills, a core/ folder for parsing, memory and task orchestration, and a frontend/ for a minimal web UI to send commands and view history.
+        </p>
+      </div>
+
+      <div class="about-card" style="margin-bottom: 2rem;">
+        <h2 style="color: #6c5ce7; margin-bottom: 1rem;">2. Tech Stack</h2>
+        <div class="skills-grid">
+          <div class="skill-item">
+            <i class="fab fa-python"></i>
+            <span>Python 3 (core logic & modules)</span>
+          </div>
+          <div class="skill-item">
+            <i class="fas fa-microphone"></i>
+            <span>Browser speech recognition & Web Speech API (frontend)</span>
+          </div>
+          <div class="skill-item">
+            <i class="fas fa-envelope"></i>
+            <span>smtplib / email.mime (email helper)</span>
+          </div>
+          <div class="skill-item">
+            <i class="fas fa-file-alt"></i>
+            <span>JSON based chat history (core/chat_history.json)</span>
+          </div>
+          <div class="skill-item">
+            <i class="fas fa-desktop"></i>
+            <span>OS-level commands and system control helpers</span>
+          </div>
+          <div class="skill-item">
+            <i class="fas fa-globe"></i>
+            <span>Vanilla JS frontend (frontend/index.html)</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="about-card" style="margin-bottom: 2rem;">
+        <h2 style="color: #6c5ce7; margin-bottom: 1rem;">3. High-level Control Flow</h2>
+        <ol style="color: #a0a0a0; line-height: 1.6; padding-left: 1.5rem;">
+          <li style="margin-bottom: 0.5rem;">User provides input via voice or the web UI → frontend posts to the assistant endpoint (e.g., POST /ask).</li>
+          <li style="margin-bottom: 0.5rem;">Core parser (command_parser.py / task_handler.py) interprets the command and extracts intent and parameters.</li>
+          <li style="margin-bottom: 0.5rem;">Dispatcher routes the request to an appropriate module (modules/email_sender.py, modules/music_player.py, modules/system_control.py, etc.).</li>
+          <li style="margin-bottom: 0.5rem;">Module executes the action (send email, play music, control system) and returns a textual response.</li>
+          <li>The assistant saves the exchange to core/chat_history.json and returns the response to the frontend; the frontend may render + speak the response via Web Speech API.</li>
+        </ol>
+      </div>
+
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-bottom: 2rem;">
+        <div class="about-card">
+          <h3 style="color: #6c5ce7; margin-bottom: 1rem;">Key Components</h3>
+          <ul style="color: #a0a0a0; line-height: 1.6;">
+            <li style="margin-bottom: 0.5rem;"><strong>modules/</strong> - Skill modules (email_sender.py, music_player.py, voice.py, social_media.py, system_control.py, etc.).</li>
+            <li style="margin-bottom: 0.5rem;"><strong>core/</strong> - Command parsing, memory, task orchestration and chat history handling.</li>
+            <li style="margin-bottom: 0.5rem;"><strong>frontend/</strong> - Minimal web UI (index.html) used to send commands and view history.</li>
+            <li><strong>Environment</strong> - Uses environment variables (for example EMAIL_ADDRESS and EMAIL_PASSWORD) for credentials and sensitive configuration.</li>
+          </ul>
+        </div>
+
+        <div class="about-card">
+          <h3 style="color: #6c5ce7; margin-bottom: 1rem;">Implementation Notes</h3>
+          <div style="color: #a0a0a0; line-height: 1.6;">
+            <p><strong>Command parsing:</strong> modular parser that normalizes input and maps it to handler functions.</p>
+            <p><strong>Email helper:</strong> builds MIME messages and sends via smtplib; keep credentials in env vars.</p>
+            <p><strong>Voice:</strong> frontend uses Web Speech API for recognition and SpeechSynthesis for TTS; modules.voice may offer local TTS as well.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="about-card" style="margin-bottom: 2rem;">
+        <h2 style="color: #6c5ce7; margin-bottom: 1rem;">4. System Architecture</h2>
+<div style="text-align: center; margin-bottom: 2rem;">
+  <img
+    src="../assets/smartywhite.png"
+    alt="System Architecture Diagram"
+    style="width: 100%; max-width: 900px; border-radius: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.3);"
+  />
+  
+</div>
+
+        
+        <div class="project-card" style="max-width: 100%; margin: 0 auto 2rem;">
+          <div class="project-content">
+            <h3 class="project-title">Frontend ↔ Core ↔ Modules</h3>
+            <div class="project-features">
+              <ul>
+                <li><i class="fas fa-arrow-right"></i> Frontend posts command → backend core receives JSON (command).</li>
+                <li><i class="fas fa-arrow-right"></i> Core routes to skill module and awaits result.</li>
+                <li><i class="fas fa-arrow-right"></i> Module executes OS-level tasks, network calls, email, or media playback and returns a response string.</li>
+                <li><i class="fas fa-arrow-right"></i> Core logs conversation to chat_history.json and returns response to frontend (and optionally triggers TTS).</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="about-card" style="margin-bottom: 2rem;">
+        <h2 style="color: #6c5ce7; margin-bottom: 1rem;">5. API Endpoints (observed / suggested)</h2>
+        <div class="tech-stack" style="display:flex;flex-wrap:wrap;gap:8px;color:#a0a0a0">
+          <span>POST /ask — send command from frontend to assistant</span>
+          <span>GET /static/core/chat_history.json — read logged conversations</span>
+          <span>POST /api/send-email — (module) send email using modules/email_sender.py</span>
+          <span>GET /voices — optional: list available TTS voices</span>
+        </div>
+      </div>
+
+      <div class="about-card" style="margin-bottom: 2rem;">
+        <h2 style="color: #6c5ce7; margin-bottom: 1rem;">6. Features</h2>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+          <div>
+            <h4 style="color: #e0e0e0; margin-bottom: 0.5rem;">Built-in Features</h4>
+            <ul style="color: #a0a0a0; line-height: 1.6;">
+              <li>Voice input and continuous listening (frontend uses Web Speech API).</li>
+              <li>Text responses + TTS playback via browser SpeechSynthesis.</li>
+              <li>Modular skill handlers: send email, play music, social actions, system commands.</li>
+              <li>Persistent chat history stored as JSON (core/chat_history.json).</li>
+              <li>Simple contact lookup table for quick email addresses (modules/email_sender.py CONTACTS).</li>
+            </ul>
+          </div>
+          <div>
+            <h4 style="color: #e0e0e0; margin-bottom: 0.5rem;">Future Enhancements</h4>
+            <ul style="color: #a0a0a0; line-height: 1.6;">
+              <li>Integrate a small HTTP API (Flask/FastAPI) for the Python backend to serve the frontend cleanly.</li>
+              <li>Improve natural language parsing and intent recognition (use lightweight ML/NLP or regex rules).</li>
+              <li>Secure credential storage and add retry/failure handling for networked modules (email).</li>
+              <li>Unit tests for core parsers and modules; CI to run static checks.</li>
+              <li>Optional CI/CD packaging to run Jarvis as a background service on the workstation.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+<div style="text-align: center; margin-bottom: 2rem;">
+  <img
+    src="../assets/smartywhite.png"
+    alt="User Interface Preview"
+    style="width: 100%; max-width: 800px; border-radius: 10px; box-shadow: 0 0 10px rgba(157, 156, 156, 0.818);"
+  />
+  
+</div>
+
+      <div class="about-card">
+        <h2 style="color: #6c5ce7; margin-bottom: 1rem;">7. Development & Run Instructions</h2>
+        <div style="background: #1e1e1e; padding: 1.5rem; border-radius: 5px; margin-bottom: 1rem;">
+          <h4 style="color: #e0e0e0; margin-bottom: 0.5rem;">Local Setup (Python)</h4>
+          <pre style="color: #a0a0a0; margin: 0;">
+# Create a virtual env and install deps (if any listed in requirements.txt)
+python -m venv .venv
+.venv\Scripts\activate
+pip install -r requirements.txt  # if present
+
+# Set required environment variables (Windows PowerShell example)
+$env:EMAIL_ADDRESS="you@example.com"
+$env:EMAIL_PASSWORD="your-email-password"
+
+# Run the main assistant process (adjust entrypoint if different)
+python main.py   # or python app.py / python server.py depending on repo
+          </pre>
+        </div>
+        <div style="background: #1e1e1e; padding: 1.5rem; border-radius: 5px;">
+          <h4 style="color: #e0e0e0; margin-bottom: 0.5rem;">Frontend</h4>
+          <pre style="color: #a0a0a0; margin: 0;">
+# Serve frontend/index.html statically (open directly or run a simple server)
+# From the frontend folder you can run:
+py -m http.server 8000
+# Then open http://localhost:8000 in the browser
+          </pre>
+        </div>
+        <p style="color: #a0a0a0; margin-top: 1rem; font-style: italic;">
+          Ensure environment variables for credentials are set and that any optional Python dependencies (speech, TTS libraries) are installed. Check modules/email_sender.py for CONTACTS and required email settings.
+        </p>
+      </div>
+    </main>
+
+    <div class="custom-cursor"><span class="cursor-icon"></span></div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.7.0/vanilla-tilt.min.js"></script>
+    <script src="script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+      AOS.init({
+        duration: 1000,
+        once: false,
+        easing: "ease-in-out",
+      });
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+
+    <script>
+      const cursor = document.querySelector(".custom-cursor");
+
+      window.addEventListener("mousemove", (e) => {
+        gsap.to(cursor, {
+          x: e.clientX,
+          y: e.clientY,
+          duration: 0.2,
+          ease: "power2.out",
+        });
+      });
+      const links = document.querySelectorAll("a, button");
+      const scalecmp = document.querySelectorAll(".scaleonhover");
+
+      links.forEach((link) => {
+        link.addEventListener("mouseenter", () => {
+          gsap.to(cursor, { scale: 1.4, duration: 0.3 });
+        });
+        link.addEventListener("mouseleave", () => {
+          gsap.to(cursor, { scale: 1, duration: 0.3 });
+        });
+      });
+      scalecmp.forEach((cmp) => {
+        cmp.addEventListener("mouseenter", () => {
+          gsap.to(cursor, { scale: 8, duration: 0.3 });
+        });
+        cmp.addEventListener("mouseleave", () => {
+          gsap.to(cursor, { scale: 1, duration: 0.3 });
+        });
+      });
+
+      const cursorIcon = document.querySelector(".cursor-icon");
+
+      // Elements to show hand
+      document.querySelectorAll("a, button").forEach((el) => {
+        el.addEventListener("mouseenter", () => {
+          cursor.style.mixBlendMode = "normal";
+          cursorIcon.textContent = "👆"; // Hand emoji
+        });
+        el.addEventListener("mouseleave", () => {
+          cursor.style.mixBlendMode = "difference";
+          cursorIcon.textContent = "";
+        });
+      });
+    </script>
+  </body>
+</html>
