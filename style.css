@@ -1554,7 +1554,7 @@ body {
   left: 0;
   width: 25px;
   height: 25px;
-  background-color: white;
+  background-color: rgb(255, 255, 255);
   box-shadow: 0 0 5px rgba(255, 255, 255, 0.697);
   border-radius: 50%;
   pointer-events: none; /* so it doesn’t block clicks */
